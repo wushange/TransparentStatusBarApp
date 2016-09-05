@@ -1,21 +1,20 @@
 package com.wsg.transparentstatusbarapp;
 
 import android.content.Context;
-import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.githang.viewpagerindicator.IconPagerAdapter;
 import com.githang.viewpagerindicator.IconTabPageIndicator;
-import com.wsg.transparentstatusbarapp.testfragment.CityFragment;
-import com.wsg.transparentstatusbarapp.testfragment.HomeFragment;
-import com.wsg.transparentstatusbarapp.testfragment.MessageFragment;
-import com.wsg.transparentstatusbarapp.testfragment.PersonFragment;
+import com.wsg.transparentstatusbarapp.base.BaseActivity;
+import com.wsg.transparentstatusbarapp.base.BaseFragmentV4;
+import com.wsg.transparentstatusbarapp.testfragment.Test1Fragment;
+import com.wsg.transparentstatusbarapp.testfragment.Test2Fragment;
+import com.wsg.transparentstatusbarapp.testfragment.TestPaddingfFragment;
+import com.wsg.transparentstatusbarapp.testfragment.Test4Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,19 +30,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            // Translucent status bar
-            window.setFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
         return R.layout.activity_main;
     }
 
     @Override
     public void initView(View view) {
-
+        setTranslucentStatus();
         initFragments();
         initViews();
     }
@@ -58,13 +50,13 @@ public class MainActivity extends BaseActivity {
     private List<BaseFragmentV4> initFragments() {
         List<BaseFragmentV4> fragments = new ArrayList<BaseFragmentV4>();
 
-        CityFragment cityFragment = new CityFragment();
+        Test1Fragment cityFragment = new Test1Fragment();
         cityFragment.initIconWithText("模块1", R.drawable.tab_user_selector);
-        HomeFragment homeFragment = new HomeFragment();
+        Test2Fragment homeFragment = new Test2Fragment();
         homeFragment.initIconWithText("模块2", R.drawable.tab_user_selector);
-        MessageFragment messageFragment = new MessageFragment();
+        TestPaddingfFragment messageFragment = new TestPaddingfFragment();
         messageFragment.initIconWithText("模块3", R.drawable.tab_user_selector);
-        PersonFragment personFragment = new PersonFragment();
+        Test4Fragment personFragment = new Test4Fragment();
         personFragment.initIconWithText("模块3", R.drawable.tab_user_selector);
         fragments.add(cityFragment);
         fragments.add(homeFragment);

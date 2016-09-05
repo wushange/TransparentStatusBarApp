@@ -1,4 +1,4 @@
-package com.wsg.transparentstatusbarapp;
+package com.wsg.transparentstatusbarapp.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.View;
 public interface IBaseFragment {
 
     public int bindLayout();
-
     public View bindView();
     public void initParms(Bundle parms);
     public void initView(final View view);

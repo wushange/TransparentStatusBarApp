@@ -1,4 +1,4 @@
-package com.wsg.transparentstatusbarapp;
+package com.wsg.transparentstatusbarapp.base;
 
 import android.content.Context;
 import android.view.View;
